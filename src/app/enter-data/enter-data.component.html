@@ -1,83 +1,46 @@
 <div class="container">
   <div class="row">
-  <div class="col-sm-4 col-lg-4 col-md-4 col-xs-4">
-  <div [hidden]="submitted">
-    
-    <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name"
-               required
-               [(ngModel)]="model.name" name="name"
-               #name="ngModel">
-        <div [hidden]="name.valid || name.pristine"
-             class="alert alert-danger">
-          Name is required
+    <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 backgroundcolor">
+      <form #detailForm="ngForm" (ngSubmit)="onSubmit(detailForm)">
+       <div class="form-group">
+       <label> Name</label> 
+         <input type="text" name="name" [(ngModel)]="name" #nameRef="ngModel" class="form-control" required
+         [ngClass]="(nameRef.invalid && nameRef.touched) ? 'red' : ''">
+         <p *ngIf="(nameRef.invalid && nameRef.touched)">Name is Required</p>
         </div>
         <div class="form-group">
-          <label for="alterEgo">Language</label>
-          <input type="text" class="form-control" id="alterEgo"
-          [(ngModel)]="model.alterEgo" name="alterEgo">
+         <label>langauge</label>
+         <input type="text" name="language" [(ngModel)]="language" #langRef="ngModel" class="form-control" required
+         [ngClass]="(langRef.invalid && langRef.touched) ? 'red' : ''">
+         <p *ngIf="(langRef.invalid && langRef.touched)">language is Required</p>
         </div>
-
-       <!--  <div class="form-group">
-          <label for="power">Hero Power</label>
-          <select class="form-control" id="power"
-          required
-          [(ngModel)]="model.power" name="power"
-          #power="ngModel">
-          <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-          </select>
-          <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-          Power is required
-          </div>
-        </div> -->
-
-        <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-        <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
-        <i>with</i> reset
-
-        &nbsp;&nbsp;
-        <button type="button" class="btn btn-default" (click)="newHero()">New Hero</button>
-        <i>without</i> reset
-
-        <!-- NOT SHOWN IN DOCS -->
-        <div>
-          <!-- <hr>
-          Name via form.controls = {{showFormControls(heroForm)}} -->
-        </div>
-        <!-- - -->
-
+        <div class="row">
+        <div class="col-sm-7 col-md-7 col-lg-7 col-lg-7"></div>
+         <button type="submit" class="btn btn-primary" [disabled]="detailForm.invalid">Submit</button>
+         <button type="reset"  class="btn btn-warning ml15">reset</button>
+         </div>
+        </form>
+    </div>
+    <div class="col-sm-8 col-xs-8 col-md-8 col-lg-8">
+      <div class="row">
+      <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
+      <table class="table table-bordered">
+      <thead>
+      <tr><th>name</th>
+      <th>language</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let value of values">
+      <td>{{value.name}}</td>
+      <td>{{value.language}}</td>
+      </tr>
+        </tbody>
+        </table>
       </div>
-    </form>
-  </div>
-  </div><!--col close-->
-  <div class="col-sm-6 col-lg-6 col-md-6 col-xs-6">
- 
-  <div [hidden]="submitted">
-    <!-- <h2>You submitted the following:</h2> -->
-    <table class="table">
-    <tr>
-        <th>Name</th>
-        <th>Language</th>
-    </tr>
-    <tr>
-    <td>John</td>
-        <td>Doe</td>
-    </tr>
-    <div class="row">
-      <div class="col-sm-3">Name</div>
-       <div class="col-xs-3">Alter Ego</div>
-      
     </div>
-    <div class="row">
-     <div class="col-sm-6">{{ model.name }}</div>
-      <div class="col-sm-6 pull-right">{{ model.alterEgo }}</div>
+
     </div>
-    </table>
-  </div>
+  </div><!--row close-->
+</div><!--container-->
 
-
-
-   </div>
-</div>

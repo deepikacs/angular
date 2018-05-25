@@ -1,5 +1,7 @@
 import { Component} from '@angular/core';
+
 import { Hero }    from '../hero';
+import { FormsModule }   from '@angular/forms';
 
 @Component({
   selector: 'app-enter-data',
@@ -7,42 +9,14 @@ import { Hero }    from '../hero';
   styleUrls: ['./enter-data.component.css']
 })
 export class EnterDataComponent {
-
-  powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
-
-  model = new Hero(18, '', this.powers[0], '');
-
-  submitted = false;
-
-  onSubmit() { this.submitted = true; }
-
-  // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
-
-  newHero() {
-    this.model = new Hero(42, '', '');
-  }
-
-  skyDog(): Hero {
-    let myHero =  new Hero(42, 'SkyDog',
-                           'Fetch any object at any distance',
-                           'Leslie Rollover');
-    console.log('My hero is called ' + myHero.name); // "My hero is called SkyDog"
-    return myHero;
-  }
-
-  //////// NOT SHOWN IN DOCS ////////
-
-  // Reveal in html:
-  //   Name via form.controls = {{showFormControls(heroForm)}}
-  showFormControls(form: any) {
-    return form && form.controls['name'] &&
-    form.controls['name'].value; // Dr. IQ
-  }
-
-  /////////////////////////////
-
+name = '';
+ language = '';
+ values: any = [];
+ onSubmit(form) { 
+ if(form.valid) {
+ this.values.push({name: this.name, language: this.language});
+ form.reset()
+ }
 }
 
 
