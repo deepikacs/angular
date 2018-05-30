@@ -2,6 +2,9 @@ import { Component} from '@angular/core';
 
 import { Hero }    from '../hero';
 import { FormsModule }   from '@angular/forms';
+import { SimpleserviceService} from '../simpleservice.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 
 @Component({
   selector: 'app-enter-data',
@@ -9,14 +12,21 @@ import { FormsModule }   from '@angular/forms';
   styleUrls: ['./enter-data.component.css']
 })
 export class EnterDataComponent {
+uerInput: String;
 name = '';
  language = '';
  values: any = [];
- onSubmit(form) { 
- if(form.valid) {
- this.values.push({name: this.name, language: this.language});
- form.reset()
- }
+constructor(private router: Router,private SimpleserviceService: SimpleserviceService) { }
+	 ngOnInit() {
+    // debugger
+
+    this.uerInput = this.SimpleserviceService.getFromService();
+
+  }
+		onSubmit(form) { 
+		 if(form.valid) {
+		 this.values.push({name: this.name, language: this.language});
+		 form.reset()
+		 }
+		}
 }
-
-

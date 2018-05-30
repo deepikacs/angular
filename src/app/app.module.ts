@@ -7,7 +7,9 @@ import { AppComponent } from './app.component';
 import { Enterdata1Component } from './enterdata1/enterdata1.component';
 import { PageNotFoundComponent } from './not-found.component';
 import { EnterDataComponent } from './enter-data/enter-data.component';
-import { MyserviceService } from './myservice.service';
+import { SimpleserviceService} from './simpleservice.service';
+import { DisplayComponent } from './display/display.component';
+// import { MyserviceService } from './myservice.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'enterdata1', pathMatch: 'full' },
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     AppComponent,
     Enterdata1Component,
     PageNotFoundComponent,
-    EnterDataComponent
+    EnterDataComponent,
+    DisplayComponent
   ],
   imports: [
     RouterModule,
@@ -30,7 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule
   ],
-  providers: [MyserviceService],
+  providers: [SimpleserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

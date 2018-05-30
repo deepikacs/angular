@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { MyserviceService } from './myservice.service';
+// import { MyserviceService } from '../myservice.service';
+import { SimpleserviceService} from '../simpleservice.service';
 
 @Component({
   selector: 'app-enterdata1',
@@ -9,10 +10,9 @@ import { MyserviceService } from './myservice.service';
 })
 export class Enterdata1Component implements OnInit {
 	userVal: String;
-  constructor(private router: Router,private MyserviceService: MyserviceService)) { }
-
-  ngOnInit() {
-  	mySave(){ this.MyserviceService.saveToService(this.userVal); }
-  }
-
-}
+  constructor(private router: Router,private SimpleserviceService: SimpleserviceService) { }
+// private MyserviceService: MyserviceService
+  ngOnInit() {}
+  	mySave(){ 
+  		this.SimpleserviceService.saveToService(this.userVal); } 
+  	}

@@ -3,15 +3,17 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MyserviceService {
-
+export class SimpleserviceService {
+	userInput: String;
   constructor() { }
 
- saveToService(userVal) {
+  saveToService(userVal) {
     this.userInput = userVal;
+    debugger;
     console.log("hiii");
-}
- getFromService(){
+  }
+
+  getFromService(){
     return this.userInput;
   }
 }
