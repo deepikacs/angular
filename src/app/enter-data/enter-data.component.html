@@ -1,4 +1,4 @@
-User Input => {{uerInput}} 
+<!-- User Input => {{uerInput}}  -->
 <div class="container">
   <div class="row">
     <div class="col-sm-4 col-xs-4 col-md-4 col-lg-4 backgroundcolor">
@@ -17,7 +17,7 @@ User Input => {{uerInput}}
         </div>
         <div class="row">
         <div class="col-sm-7 col-md-7 col-lg-7 col-lg-7"></div>
-         <button type="submit" class="btn btn-primary" [disabled]="detailForm.invalid">Submit</button>
+         <button (click)="tblessave()" type="submit" class="btn btn-primary" [disabled]="detailForm.invalid">Submit</button>
          <button type="reset"  class="btn btn-warning ml15">reset</button>
          </div>
         </form>
@@ -45,3 +45,4 @@ User Input => {{uerInput}}
   </div><!--row close-->
 </div><!--container-->
 <button (click)="router.navigate(['/enterdata1'])">back</button>
+<button (click)="router.navigate(['/display'])">next</button>

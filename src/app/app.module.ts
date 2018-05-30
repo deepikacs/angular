@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'enterdata1', pathMatch: 'full' },
   { path: 'enterdata1', component: Enterdata1Component },
   { path: 'enter-data', component: EnterDataComponent },
+  { path: 'display', component: DisplayComponent },
   { path: '**', component: PageNotFoundComponent }
   ];
 

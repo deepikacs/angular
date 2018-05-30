@@ -12,21 +12,25 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./enter-data.component.css']
 })
 export class EnterDataComponent {
-uerInput: String;
-name = '';
- language = '';
+// uerInput: String;
+name:String;
+ language:String;
  values: any = [];
 constructor(private router: Router,private SimpleserviceService: SimpleserviceService) { }
-	 ngOnInit() {
-    // debugger
+	 // ngOnInit() {
+  //   // debugger
 
-    this.uerInput = this.SimpleserviceService.getFromService();
+  //   this.uerInput = this.SimpleserviceService.getFromService();
 
-  }
+  // }
 		onSubmit(form) { 
 		 if(form.valid) {
 		 this.values.push({name: this.name, language: this.language});
 		 form.reset()
 		 }
+		}
+		tblessave(){
+			this.SimpleserviceService.tablevaluesave(this.name,this.language);
+			// this.SimpleserviceService.tablevaluesave(this.language);
 		}
 }

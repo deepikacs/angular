@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SimpleserviceService} from '../simpleservice.service';
 
 @Component({
   selector: 'app-display',
@@ -6,18 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-	name = '';
- language = '';
- values: any = [];
-  constructor() { }
+	name:String;
+	language:String;
+  constructor(private router: Router,private SimpleserviceService: SimpleserviceService) { }
 
   ngOnInit() {
+  	
+  	this.name=this.SimpleserviceService.tablevalueget();
+  	this.language=this.SimpleserviceService.tablevaluegets();
   }
-  onSubmit(form) { 
-		 if(form.valid) {
-		 this.values.push({name: this.name, language: this.language});
-		 form.reset()
-		 }
-		}
+  
 
 }

@@ -13,6 +13,7 @@ export class Enterdata1Component implements OnInit {
   constructor(private router: Router,private SimpleserviceService: SimpleserviceService) { }
 // private MyserviceService: MyserviceService
   ngOnInit() {}
-  	mySave(){ 
-  		this.SimpleserviceService.saveToService(this.userVal); } 
+  	// mySave(){ 
+  	// 	this.SimpleserviceService.saveToService(this.userVal); } 
   	}
+  	
